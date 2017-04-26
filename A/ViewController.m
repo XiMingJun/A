@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-
+#import "AViewController.h"
+#import "AppDelegate.h"
 @interface ViewController ()
 
 @end
@@ -17,6 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+
+    app.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[AViewController alloc] init]];
+
 }
 
 

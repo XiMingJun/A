@@ -7,9 +7,9 @@
 //
 
 #import "AViewController.h"
-#import "BViewController.h"
+//#import "BViewController.h"
 #import <HandyFrame/UIView+LayoutMethods.h>
-
+#import <B_Category/CTMediator+B.h>
 @interface AViewController ()
 
 @property (nonatomic, strong) UIButton *pushBViewControllerButton;
@@ -22,7 +22,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor cyanColor];
     [self.view addSubview:self.pushBViewControllerButton];
 }
 
@@ -37,7 +37,10 @@
 #pragma mark - event response
 - (void)didTappedPushBViewControllerButton:(UIButton *)button
 {
-    BViewController *viewController = [[BViewController alloc] initWithContentText:@"hello, world!"];
+//    BViewController *viewController = [[BViewController alloc] initWithContentText:@"hello, world!"];
+//    [self.navigationController pushViewController:viewController animated:YES];
+    
+    UIViewController *viewController = [[CTMediator sharedInstance] B_viewControllerWithContentText:@"hello, world!"];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
